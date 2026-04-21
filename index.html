@@ -12,39 +12,33 @@
 <body>
   <div class="bg-orb orb-a" aria-hidden="true"></div>
   <div class="bg-orb orb-b" aria-hidden="true"></div>
-  <div class="noise-layer" aria-hidden="true"></div>
 
   <main class="app-shell">
     <header class="topbar glass-card">
-      <div class="headline">
-        <p class="eyebrow">PRIVATE HUB · SECURE VAULT</p>
+      <div>
+        <p class="eyebrow">PRIVATE HUB</p>
         <h1>Dashboard Premium</h1>
-        <p class="subtitle">Experiencia tipo banca digital: datos críticos, accesos y cuentas en un solo lugar.</p>
+        <p class="subtitle">Identidad, finanzas y accesos en un solo panel.</p>
       </div>
 
       <label class="search-wrap" for="searchInput">
-        <span>Buscar en tiempo real</span>
-        <input id="searchInput" type="search" placeholder="DUI, NIT, correo, banco, plataforma..." autocomplete="off" />
+        <span>Buscar</span>
+        <input id="searchInput" type="search" placeholder="DUI, correo, banco, plataforma..." autocomplete="off" />
       </label>
     </header>
 
     <section class="widgets" id="widgetsSection" aria-label="Datos importantes"></section>
 
     <section class="dashboard" id="dashboard" aria-label="Categorías"></section>
-
-    <p class="empty-state hidden" id="emptyState">No encontramos resultados con ese criterio.</p>
   </main>
 
   <aside id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></aside>
 
   <template id="widgetTemplate">
     <article class="widget glass-card">
-      <div class="widget-main">
-        <div class="icon-dot" aria-hidden="true"></div>
-        <div>
-          <p class="widget-label"></p>
-          <h2 class="widget-value"></h2>
-        </div>
+      <div>
+        <p class="widget-label"></p>
+        <h2 class="widget-value"></h2>
       </div>
       <button class="copy-btn" type="button">Copiar</button>
     </article>
@@ -53,10 +47,7 @@
   <template id="categoryTemplate">
     <article class="category glass-card">
       <header class="category-header">
-        <div class="category-title-wrap">
-          <span class="category-icon" aria-hidden="true"></span>
-          <h3></h3>
-        </div>
+        <h3></h3>
         <p class="category-count"></p>
       </header>
       <div class="category-list"></div>
@@ -65,12 +56,9 @@
 
   <template id="itemTemplate">
     <div class="entry">
-      <div class="entry-main">
-        <span class="entry-icon" aria-hidden="true"></span>
-        <div>
-          <p class="entry-title"></p>
-          <p class="entry-value"></p>
-        </div>
+      <div>
+        <p class="entry-title"></p>
+        <p class="entry-value"></p>
       </div>
       <button class="copy-btn" type="button">Copiar</button>
     </div>
