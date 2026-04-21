@@ -1,160 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gestión Privada</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<!-- Fuente PRO -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión Privada Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="bg-orb orb-a" aria-hidden="true"></div>
+  <div class="bg-orb orb-b" aria-hidden="true"></div>
+  <div class="noise-layer" aria-hidden="true"></div>
 
-<div class="container">
+  <main class="app-shell">
+    <header class="topbar glass-card">
+      <div class="headline">
+        <p class="eyebrow">PRIVATE HUB · SECURE VAULT</p>
+        <h1>Dashboard Premium</h1>
+        <p class="subtitle">Experiencia tipo banca digital: datos críticos, accesos y cuentas en un solo lugar.</p>
+      </div>
 
-<header>
-    <h1>🔐 Gestión Privada</h1>
-    <input type="text" placeholder="Buscar..." onkeyup="buscar(this.value)">
-</header>
+      <label class="search-wrap" for="searchInput">
+        <span>Buscar en tiempo real</span>
+        <input id="searchInput" type="search" placeholder="DUI, NIT, correo, banco, plataforma..." autocomplete="off" />
+      </label>
+    </header>
 
-<!-- DATOS -->
-<section class="card">
-    <h2>⚡ Datos rápidos</h2>
+    <section class="widgets" id="widgetsSection" aria-label="Datos importantes"></section>
 
-    <div class="item">
-        DUI: 05541627-2
-        <button onclick="copy('05541627-2')">Copiar</button>
+    <section class="dashboard" id="dashboard" aria-label="Categorías"></section>
+
+    <p class="empty-state hidden" id="emptyState">No encontramos resultados con ese criterio.</p>
+  </main>
+
+  <aside id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></aside>
+
+  <template id="widgetTemplate">
+    <article class="widget glass-card">
+      <div class="widget-main">
+        <div class="icon-dot" aria-hidden="true"></div>
+        <div>
+          <p class="widget-label"></p>
+          <h2 class="widget-value"></h2>
+        </div>
+      </div>
+      <button class="copy-btn" type="button">Copiar</button>
+    </article>
+  </template>
+
+  <template id="categoryTemplate">
+    <article class="category glass-card">
+      <header class="category-header">
+        <div class="category-title-wrap">
+          <span class="category-icon" aria-hidden="true"></span>
+          <h3></h3>
+        </div>
+        <p class="category-count"></p>
+      </header>
+      <div class="category-list"></div>
+    </article>
+  </template>
+
+  <template id="itemTemplate">
+    <div class="entry">
+      <div class="entry-main">
+        <span class="entry-icon" aria-hidden="true"></span>
+        <div>
+          <p class="entry-title"></p>
+          <p class="entry-value"></p>
+        </div>
+      </div>
+      <button class="copy-btn" type="button">Copiar</button>
     </div>
+  </template>
 
-    <div class="item">
-        NIT: 0817-050597-101-0
-        <button onclick="copy('0817-050597-101-0')">Copiar</button>
-    </div>
-
-    <div class="item">
-        Tigo: 7552-4118
-        <button onclick="copy('7552-4118')">Copiar</button>
-    </div>
-
-    <div class="item">
-        Digicel: 7263-1331
-        <button onclick="copy('7263-1331')">Copiar</button>
-    </div>
-</section>
-
-<!-- FINANZAS -->
-<section class="card">
-<h2>🏦 Finanzas</h2>
-
-<div class="item">Davivienda → 055416272</div>
-<div class="item">Agrícola → cruzfernando97</div>
-<div class="item">AFP Crecer → fernandomontoya963@gmail.com</div>
-<div class="item">Binance → fernandomontoya963@gmail.com</div>
-<div class="item">Coinbase → fernandomontoya963@gmail.com</div>
-<div class="item">TransUnion → 05541627-2</div>
-<div class="item">Hacienda → 05541627-2</div>
-
-</section>
-
-<!-- CORREOS -->
-<section class="card">
-<h2>📧 Correos</h2>
-
-<div class="item">Principal → fernandomontoya963@gmail.com</div>
-<div class="item">Trabajo → fernandocruz.designs@gmail.com</div>
-<div class="item">Secundario → fernandomontoya953@gmail.com</div>
-<div class="item">Secundario → fernandomontoya983@gmail.com</div>
-<div class="item">Secundario → fernanditacruz0822@gmail.com</div>
-<div class="item">Secundario → fertoniytindia@gmail.com</div>
-<div class="item">Secundario → fertoniytindonesia@gmail.com</div>
-
-</section>
-
-<!-- PLATAFORMAS -->
-<section class="card">
-<h2>🌐 Plataformas</h2>
-
-<div class="item">Samsung → fernandomontoya963@gmail.com</div>
-<div class="item">GitHub → fernandocruz.designs@gmail.com</div>
-<div class="item">Identidad → 05541627-2</div>
-<div class="item">Cisco → fernandomontoya983@gmail.com</div>
-<div class="item">Sertracen → 05541627-2</div>
-
-</section>
-
-<!-- ENTRETENIMIENTO -->
-<section class="card">
-<h2>🎮 Entretenimiento</h2>
-
-<div class="item">Genshin → fernandomontoya983@gmail.com</div>
-<div class="item">Spotify → fernandomontoya963@gmail.com</div>
-<div class="item">TikTok → fernandomontoya963@gmail.com</div>
-<div class="item">Facebook → fernandomontoya963@gmail.com</div>
-
-</section>
-
-<!-- FÁTIMA -->
-<section class="card">
-<h2>👤 Fátima</h2>
-
-<div class="item">Gmail → alvarezmorena402@gmail.com</div>
-<div class="item">Gmail → cruzalvarezfatima@gmail.com</div>
-<div class="item">AFP → FCRUZ1982</div>
-<div class="item">Hacienda → correo</div>
-<div class="item">Hacienda → 06067943-7</div>
-
-</section>
-
-<!-- HERMANO -->
-<section class="card">
-<h2>👤 Hermano</h2>
-
-<div class="item">BAC → marioal1999</div>
-<div class="item">Identidad → 05940175-8</div>
-<div class="item">Correo → cmarioalberto10.09@gmail.com</div>
-
-</section>
-
-<!-- FAMILIA -->
-<section class="card">
-<h2>👥 Familia</h2>
-
-<div class="item">06213659-0 → romeroyolandagabriela@gmail.com</div>
-<div class="item">06450868-8 → floresromero.9karlita@gmail.com</div>
-
-</section>
-
-<!-- MAMÁ -->
-<section class="card">
-<h2>👩 Mamá</h2>
-
-<div class="item">Gmail → montoyaroxana186@gmail.com</div>
-<div class="item">Gmail → roxanaivethmontoya@gmail.com</div>
-<div class="item">Facebook → roxanaivethmontoya@gmail.com</div>
-
-</section>
-
-<!-- OTROS -->
-<section class="card">
-<h2>📁 Otros</h2>
-
-<div class="item">Renta → isa14minero@gmail.com</div>
-
-<h3>Amigo</h3>
-<div class="item">Gmail → rivasroquejoseluis@gmail.com</div>
-<div class="item">DUI → 05617469-5</div>
-<div class="item">NIT → 0817-131197-101-6</div>
-
-</section>
-
-</div>
-
-<div id="toast"></div>
-
-<script src="app.js"></script>
-
+  <script src="app.js"></script>
 </body>
 </html>
