@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #e2e8f0;
+}
+
+.container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #22c55e, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    margin-top: 15px;
+    background: rgba(255,255,255,0.05);
+    color: white;
+    font-size: 14px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #38bdf8;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.item:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+button {
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 10px;
+    color: #022c22;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: none;
+    color: #022c22;
+    font-weight: 500;
+}
